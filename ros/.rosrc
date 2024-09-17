@@ -1,0 +1,8 @@
+#! /bin/bash
+
+
+export ROBOT=youbot-brsu-2
+export RMW_IMPLEMENTATION=rmw_cyclonedds_cpp
+
+export ROS_DISTRO=humble
+export GZ_VERSION=harmonic

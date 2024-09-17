@@ -185,3 +185,12 @@ export PATH=$PATH:${STST_HOME}
 
 # neovim
 export PATH="$PATH:/opt/nvim-linux64/bin"
+
+# zoxide
+eval "$(zoxide init bash)"
+
+test -r "~/.dir_colors" && eval $(dircolors ~/.dir_colors)
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
