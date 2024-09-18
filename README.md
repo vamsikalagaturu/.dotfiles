@@ -187,4 +187,17 @@ To clone and set up your dotfiles on a new machine, follow these steps:
 
    Run `p10k configure` to customize your Powerlevel10k theme.
 
-   
+## Vim Configuration
+
+- Clone the Ultimate vimrc repository
+
+  ```bash
+  git clone --depth=1 https://github.com/amix/vimrc.git ~/.vim_runtime
+  ```
+
+- Install the Ultimate vimrc
+
+  ```bash
+  sh ~/.vim_runtime/install_awesome_vimrc.sh
+  ```
+
