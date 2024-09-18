@@ -7059,3 +7059,141 @@ cllear
 cd ros2_ws/
 sros 
 ros2 run tf2gm tn
+ll
+ll | grep .
+ll | grep .*
+ll
+cat .fzf.bash 
+ls .vim/
+ll .vim/
+cat .vim/.netrwhist 
+ll
+rm .zsh_history .zshrc.omz-uninstalled-2024-09-14_14-41-30 
+clear
+ll
+cat .bash_logout 
+clear
+cat .profile 
+ll
+cat .vimrc 
+cat .viminfo 
+:Q
+ls
+clear
+ll
+cat .rosrc
+ll
+cat .bashrc 
+bat .bashrc 
+clear
+mv .bash_history .dotfiles/bash/
+mv .vimrc .dotfiles/vim/
+ll
+ll | grep zsh
+mv .rosrc .dotfiles/ros/
+ll
+cat .gitconfig 
+ls -la ~/.bashrc
+ls
+cd .dotfiles/
+ls
+git status
+bat .stow-local-ignore 
+touch README.md
+gs
+clear
+ls
+ll
+mkdir bash
+mkdir zsh
+mkdir vim
+mv .bash_aliases .bashrc bash/
+ls
+ll
+mkdir ros
+ll
+ls
+clear
+ls
+cd bash/
+ll
+cat .bashrc
+q
+clear
+ll
+cd ..
+ll
+tree
+tree .
+tree -a
+gs
+cat .stow-local-ignore 
+ll
+git add .
+gs
+clear
+git commit -m "few updates to the structure"
+stow bash
+stow vim
+stow ros
+gs
+vi README.mdE
+vi README.md
+code-insiders .
+sudo apt-get update && sudo apt-get full-upgrade
+code-insiders .
+gs
+git add README.mdE
+git add README.md
+git commit -m "added instructions"
+git push
+c\
+ls
+mkdir -p secorolab/temp
+cd secorolab/temp/
+mkdir src
+cd src/
+git clone https://github.com/secorolab/kelo_tulip.git
+git clone https://github.com/secorolab/kelo_interfaces.git
+ls
+cd ..
+ls
+alias sros
+sros
+alias cb
+cd src/kelo_tulip/
+git checkout ros2
+cd ..
+ls
+cd ..
+ls
+rm -rf build/ install/ log/ 
+ls
+sudo apt-get update && sudo apt-get full-upgrade
+cd secorolab/temp/
+sudo reboot
+bat .bashrc
+sudo apt-get update && sudo apt-get full-upgrade
+cd secorolab/temp/
+ls
+ros2 run
+sros
+ros2 launch kelo_tulip example.launch.py 
+sudo apt-get install ros-humble-joy-linux
+ros2 launch kelo_tulip example.launch.py 
+ls
+cd install/kelo_tulip/lib/kelo_tulip/
+ls
+ldd platform_driver 
+cd ../../
+ros2 launch kelo_tulip example.launch.py 
+cd install/kelo_tulip/lib/kelo_tulip/
+ldd platform_driver  | grep fast
+ls
+ll
+zsh --version
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+vi .zshrc
+ls
+python3 convert_bh_to_zsh.py 
+cat ~/.bash_history | grep python3 convert_bh_to_zsh.py >> ~/.zsh_history 
