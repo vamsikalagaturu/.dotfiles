@@ -1,3 +1,5 @@
-set number
+set nu
+
 se mouse+=a
+
 set clipboard=unnamedplus
