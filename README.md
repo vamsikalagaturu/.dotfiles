@@ -1,22 +1,4 @@
-# Dotfiles Setup with GNU Stow and Git
-
-## Table of Contents
-
-1. [Introduction](#introduction)
-2. [Prerequisites](#prerequisites)
-3. [Setting Up Your Dotfiles Repository](#setting-up-your-dotfiles-repository)
-4. [Organizing Your Dotfiles with GNU Stow](#organizing-your-dotfiles-with-gnu-stow)
-   - [a. Directory Structure](#a-directory-structure)
-   - [b. Create Package Directories](#b-create-package-directories)
-   - [c. Move Existing Dotfiles into the Repository](#c-move-existing-dotfiles-into-the-repository)
-   - [d. Initialize Git Repository](#d-initialize-git-repository)
-5. [Using GNU Stow to Manage Symlinks](#using-gnu-stow-to-manage-symlinks)
-   - [a. Symlinking the Dotfiles](#a-symlinking-the-dotfiles)
-   - [b. Verify Symlinks](#b-verify-symlinks)
-6. [Version Control](#version-control)
-7. [Cloning and Setting Up on a New Machine](#cloning-and-setting-up-on-a-new-machine)
-
----
+# Dotfiles
 
 ## Introduction
 
@@ -24,13 +6,10 @@
   
 - **GNU Stow**: A symlink manager that simplifies managing multiple dotfiles by organizing them into separate directories and creating symlinks in your home directory.
 
----
-
 ## Prerequisites
 
 Ensure that you have the following tools installed on your Linux machine:
 
-- **Git**: Version control system.
 - **GNU Stow**: Symlink manager.
 
 ### Installing Git and Stow
@@ -41,7 +20,7 @@ Open your terminal and execute the following commands based on your Linux distri
 
 ```bash
 sudo apt update
-sudo apt install git stow
+sudo apt install stow
 ```
 
 ## Setting Up Your Dotfiles Repository
@@ -68,6 +47,7 @@ Create a directory structure for your dotfiles repository as follows:
 dotfiles/
 ├── bash/
 ├── vim/
+├── zsh/
 └── ...
 ```
 
@@ -160,3 +140,51 @@ To clone and set up your dotfiles on a new machine, follow these steps:
    ```bash
    stow bash
    ```
+
+
+## Zsh, Oh My Zsh, and Powerlevel10k
+
+### Installing Zsh
+
+1. **Install Zsh**: Install Zsh using the package manager of your Linux distribution.
+
+   **For Debian/Ubuntu-based systems:**
+
+   ```bash
+   sudo apt update
+   sudo apt install zsh
+   ```
+
+2. **Set Zsh as the Default Shell**: Change your default shell to Zsh by running the following command:
+
+   ```bash
+   chsh -s $(which zsh)
+   ```
+
+3. **Log Out and Log Back In**: Log out of your session and log back in to apply the changes.
+
+### Installing Oh My Zsh
+
+1. **Install Oh My Zsh**: Install Oh My Zsh by running the following command:
+
+   ```bash
+   sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
+   ```
+
+2. **Customize Oh My Zsh**: Edit the `~/.zshrc` file to customize your Oh My Zsh configuration.
+
+### Installing Powerlevel10k Theme
+
+1. **Install Powerlevel10k**: Install the Powerlevel10k theme.
+
+   ```bash
+   git clone --depth=1 https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-$HOME/.oh-my-zsh/custom}/themes/powerlevel10k
+   ```
+
+2. **Set ZSH_THEME**: Set the `ZSH_THEME` variable in your `~/.zshrc` file to `powerlevel10k/powerlevel10k`.
+
+3. Configure Powerlevel10k
+
+   Run `p10k configure` to customize your Powerlevel10k theme.
+
+   
