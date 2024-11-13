@@ -80,6 +80,7 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 plugins=(
   git
   zsh-autosuggestions
+  thefuck
 )
 
 fpath+=${ZSH_CUSTOM:-${ZSH:-~/.oh-my-zsh}/custom}/plugins/zsh-completions/src
@@ -125,3 +126,16 @@ eval "$(register-python-argcomplete3 colcon)"
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+# zoxide
+eval "$(zoxide init zsh)"
+
+# thefuck
+#eval $(thefuck --alias)
+#eval $(thefuck --alias FUCK)
+
+source ~/.rosrc
