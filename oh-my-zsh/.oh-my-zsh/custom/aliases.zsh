@@ -12,7 +12,7 @@ alias ls='ls --color=auto'
 alias tree='tree -C'
 
 # some ls aliases
-alias ll='ls -alF'
+alias ll='ls -alhF'
 alias la='ls -A'
 alias l='ls -CF'
 
@@ -27,13 +27,15 @@ alias ...='cdls ../..'
 alias ....='cdls ../../..'
 alias .....='cdls ../../../..'
 
+alias bat=batcat
+
 # bash edit
 alias bashrc_edit="vi ~/.bashrc"
 alias aliases_edit="vi ~/.bash_aliases"
 
 alias focal="lxc exec focal -- sudo --user ubuntu --login"
 
-alias sros="source /opt/ros/humble/setup.zsh"
+# alias sros="source /opt/ros/jazzy/setup.zsh"
 alias sws="source install/local_setup.zsh"
 alias rosrc_edit="vi ~/.rosrc"
 
@@ -41,18 +43,6 @@ alias cb="colcon build"
 alias cbs="colcon build --symlink-install"
 alias cbp="colcon build --packages-select"
 alias cbps="colcon build --symlink-install --packages-select"
-
-alias yb2="ssh -X robocup@192.168.1.114"
-alias export_yb2="export ROS_MASTER_URI=http://192.168.1.114:11311"
-
-alias yb2_22="ssh -X robocup@192.168.1.115"
-
-alias yb3="ssh -X robocup@192.168.1.116"
-
-alias yb4="ssh -X robocup@192.168.1.142"
-alias export_yb4="export ROS_MASTER_URI=http://192.168.1.142:11311"
-
-alias choco="ssh -X kalagaturu@131.220.7.205"
 
 alias mendeley="~/mendeley.AppImage  --disable-gpu-sandbox"
 
@@ -70,7 +60,47 @@ alias rosclean="rm -rf build/ install/ log/"
 #emscripten
 alias semsdk="source /home/batsy/emsdk/emsdk_env.sh"
 
+alias cal="khal --color interactive"
+
+
+
 ########## Functions ##################
+ssh_color() {
+    # Save the current terminal background color
+    ORIGINAL_BG=$(xtermcontrol --get-bg)
+    
+    # Set the new background color for SSH session
+    xtermcontrol --bg 'rgb:1010/1313/1b1b'
+
+    # Ensure background color is restored on exit or interruption
+    trap 'xtermcontrol --bg "$ORIGINAL_BG"' EXIT INT TERM
+
+    # Run SSH
+    ssh "$@"
+
+    # Restore the original background color (redundant but safe)
+    xtermcontrol --bg "$ORIGINAL_BG"
+
+    # Remove the trap after SSH exits to avoid unnecessary executions
+    trap - EXIT INT TERM
+}
+
+alias ssh="ssh_color"
+
+#ros
+sros(){
+  source /opt/ros/jazzy/setup.zsh
+  # argcomplete for ros2 & colcon
+  eval "$(register-python-argcomplete ros2)"
+  eval "$(register-python-argcomplete colcon)"
+  eval "$(register-python-argcomplete ros2-pkg-create)"
+}
+
+#virtualenvwrapper
+venv(){
+  source ~/.local/bin/virtualenvwrapper.sh
+  export WORKON_HOME=~/pyenvs
+}
 
 #workspace
 gowsbuild() {
@@ -166,7 +196,7 @@ build_package() {
     fi
 
     local build_dir="${workspace_base}/build/${package_name}"
-    local install_dir="${workspace_base}/install"
+    local install_dir="${workspace_base}/install/${package_name}"
 
     # Check if the source directory exists
     if [[ ! -d "$src_dir" ]]; then
